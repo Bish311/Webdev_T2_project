@@ -28,10 +28,9 @@ if (localStorage.getItem('darkMode') === 'true') {
 
 function initializeGame() {
   const levels = [
-    { shapes: 3, grooves: 4 }, // Level 1: 3 shapes, 4 grooves
-    { shapes: 5, grooves: 6 }, // Level 2: 5 shapes, 6 grooves
-    { shapes: 7, grooves: 8 }, // Level 3: 7 shapes, 8 grooves
-  ];
+    { shapes: 3, grooves: 4 },
+    { shapes: 5, grooves: 6 }, 
+    { shapes: 7, grooves: 8 }, ]
 
   const level = levels[currentLevel - 1];
   createShapes(level.shapes);
@@ -160,6 +159,7 @@ resetButton.addEventListener('click', () => {
   initializeGame();
   messageElement.style.display = 'none';
   nextLevelButton.style.display = 'none';
+
 });
 
 
