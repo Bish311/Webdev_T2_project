@@ -83,7 +83,6 @@
     align-items: center;
   }
   
-  /* Groove shapes */
   .groove[data-shape="circle"] { clip-path: circle(40px at center); }
   .groove[data-shape="triangle"] { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
   .groove[data-shape="star"] { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
@@ -112,7 +111,6 @@
     cursor: grabbing;
   }
   
-  /* Shape colors */
   .shape[data-shape="circle"] { background-color: #ff6b6b; clip-path: circle(50%); }
   .shape[data-shape="triangle"] { background-color: #4ecdc4; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
   .shape[data-shape="star"] { background-color: #ffe66d; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }

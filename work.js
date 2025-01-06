@@ -13,20 +13,19 @@ let currentLevel = 1;
 let shapes = [];
 let grooves = [];
 
-// Dark mode toggle
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
   darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
   localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
 });
 
-// Check for saved dark mode preference
+
 if (localStorage.getItem('darkMode') === 'true') {
   document.body.classList.add('dark-mode');
   darkModeToggle.textContent = '☀️';
 }
 
-// Initialize the game
+
 function initializeGame() {
   const levels = [
     { shapes: 3, grooves: 4 }, // Level 1: 3 shapes, 4 grooves
@@ -40,7 +39,7 @@ function initializeGame() {
   startTimer();
 }
 
-// Create shapes
+
 function createShapes(count) {
   shapesContainer.innerHTML = '';
   const shapeTypes = ['circle', 'triangle', 'star', 'square', 'hexagon', 'diamond', 'rectangle'];
@@ -58,7 +57,7 @@ function createShapes(count) {
   shapes.forEach(shape => shape.addEventListener('dragstart', dragStart));
 }
 
-// Create grooves
+
 function createGrooves(count) {
   box.innerHTML = '';
   const shapeTypes = ['circle', 'triangle', 'star', 'square', 'hexagon', 'diamond', 'rectangle'];
@@ -78,7 +77,7 @@ function createGrooves(count) {
   });
 }
 
-// Drag and drop functionality
+
 function dragStart(event) {
   event.dataTransfer.setData('text/plain', event.target.id);
   const dragGhost = event.target.cloneNode(true);
@@ -107,7 +106,7 @@ function drop(event) {
   }
 }
 
-// Timer functionality
+
 function startTimer() {
   clearInterval(timerInterval);
   timeLeft = 15;
@@ -123,7 +122,7 @@ function startTimer() {
   }, 1000);
 }
 
-// Check if all shapes are in the correct grooves
+
 function checkWin() {
   const allShapesInCorrectGrooves = Array.from(shapes).every(shape => {
     const groove = shape.closest('.groove');
@@ -138,7 +137,7 @@ function checkWin() {
   }
 }
 
-// Show win/lose message
+
 function showMessage(message, type) {
   messageElement.textContent = message;
   messageElement.className = `message ${type} show`;
@@ -151,19 +150,19 @@ function showMessage(message, type) {
   }
 }
 
-// Disable game after win/lose
+
 function disableGame() {
   shapes.forEach(shape => (shape.draggable = false));
 }
 
-// Reset game
+
 resetButton.addEventListener('click', () => {
   initializeGame();
   messageElement.style.display = 'none';
   nextLevelButton.style.display = 'none';
 });
 
-// Next level
+
 nextLevelButton.addEventListener('click', () => {
   if (currentLevel < 3) {
     currentLevel++;
@@ -176,5 +175,6 @@ nextLevelButton.addEventListener('click', () => {
   }
 });
 
-// Start the game
+
+
 initializeGame();
